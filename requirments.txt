@@ -1,0 +1,10 @@
+# Email Spam Filter - Python Dependencies
+
+# Data manipulation and analysis
+pandas>=1.5.0
+
+# Machine learning
+scikit-learn>=1.2.0
+numpy>=1.24.0
+
+# Note: imaplib and email are built-in Python libraries (no installation needed)

@@ -1,0 +1,39 @@
+# Email Spam Filter - Git Ignore File
+
+# Trained models (too large for git)
+*.pkl
+
+# Data files (privacy/size concerns)
+*.csv
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Credentials (NEVER commit these!)
+credentials.py
+config.py
+.env
+
+# Test outputs
+test_results/
+scan_results/
+*.log
