@@ -1,5 +1,7 @@
 Local AI Email Spam Filter
+
 A machine learning project that classifies email messages as spam or legitimate (ham) using a locally-trained Naive Bayes classifier with TF-IDF feature extraction.
+
 Project Goals
 This project was built as a learning exercise to:
 Understand the end-to-end machine learning workflow
@@ -7,12 +9,14 @@ Work with real email data and IMAP protocols
 Train and evaluate a text classification model
 Apply ML to solve a practical problem (inbox management)
 Build a portfolio-worthy project demonstrating ML fundamentals
+
 Results
 Model Performance
 Training Accuracy: 99.09%
 Testing Accuracy: 98.45%
 Spam Precision: 99.5% (when it says "spam", it's right 99.5% of the time)
 Spam Recall: 95.8% (catches 95.8% of all spam emails)
+
 Real-World Testing
 Tested on 100+ real unread emails from a Yahoo inbox:
 Successfully classified 97% as spam with minimal false positives
@@ -44,7 +48,9 @@ spam-filter-project/
     ├── spam_assassin.csv        # Training data (not in repo)
     ├── train_data.csv           # Processed training set
     └── test_data.csv            # Processed test set
+
 How It Works
+
 1. Data Preparation
 Used the SpamAssassin public corpus (5,796 emails: 67% ham, 33% spam)
 Cleaned email text by removing headers, HTML, URLs, and special characters
@@ -66,33 +72,50 @@ Scans newest emails first
 Supports whitelist for trusted senders
 Outputs detailed CSV reports with spam probabilities
 
-Key Learnings
-What I Learned
+Key Learnings/What I Learned
+
 Data preprocessing is critical - Raw email data requires extensive cleaning
+
 Email encoding matters - Had to implement proper header decoding for non-ASCII characters
+
 Class imbalance considerations - Stratified splitting preserves spam/ham ratios
+
 Evaluation beyond accuracy - Precision and recall matter differently for spam filtering (false positives worse than false negatives)
+
 Real-world testing reveals gaps - Public training data doesn't capture all spam patterns in personal inboxes
+
 Iterative improvement - Started with basic classifier, added encoding fixes, whitelist support
+
 Challenges Overcome
+
 Encoded email subjects - Initially showed gibberish, fixed with proper header decoding
+
 IMAP folder navigation - Different email providers use different folder names
+
 False positive management - Balancing spam detection with avoiding blocking legitimate emails
+
 Large unread email backlog - Optimized to scan newest emails first
+
 Future Improvements
+
 Option A: Improve Accuracy
+
 Add user-specific training data from manually labeled emails
 Implement ensemble methods (combine multiple classifiers)
 Use more sophisticated models (SVM, Random Forest, or neural networks)
 Add sender reputation scoring
 Implement DKIM/SPF authentication checks
+
 Option B: Build Automation
+
 Automatically move spam to designated folder
 Mark processed spam as read
 Schedule daily/hourly scans
 Email digest of detected spam
 Web interface for managing whitelist and reviewing classifications
+
 Option C: Advanced Features
+
 Integrate local LLM (Qwen2) for uncertain classifications
 Multi-class classification (spam, promotional, important, personal)
 Phishing detection with URL analysis
@@ -100,6 +123,7 @@ Attachment safety scanning
 Learning from user feedback (active learning)
 
 Getting Started
+
 Prerequisites
 bash
 pip install -r requirements.txt
@@ -124,25 +148,35 @@ bash
 python scan_yahoo_improved.py
 
 Important Notes
-Security
+
+Security:
+
 Never commit passwords or API keys to version control
 Use app-specific passwords for email access (not your main password)
 Consider using environment variables for credentials
-Privacy
+
+Privacy:
+
 Model files and email data are excluded from repo (see .gitignore)
 Be careful when sharing email content or sender information
-Limitations
+
+Limitations:
+
 Trained on 2002 email data (SpamAssassin corpus) - spam patterns evolve
 Best for personal use; production systems need more robust architecture
 No real-time learning - requires retraining to adapt to new spam patterns
 
-Resources
-Datasets Used
+Resources:
+
+Datasets Used: 
 SpamAssassin Public Corpus
-Learning Resources
+
+Learning Resources:
 scikit-learn documentation: Text Classification
+
 IMAP Protocol: RFC 3501
 Email Parsing: Python email library
+
 Contributing
 This is a learning project, but suggestions and improvements are welcome! Feel free to:
 Open issues for bugs or questions
@@ -150,9 +184,12 @@ Submit pull requests with enhancements
 Share your own spam filtering approaches
 License
 This project is for educational purposes. Training data subject to SpamAssassin corpus license.
+
 Author
 [Sergio Estevez-Perez]
+
 GitHub: [@Mazapan-17]
+
 LinkedIn: [sergio-estevez-perez]
 
 Built as part of my journey to learn machine learning and AI development.
